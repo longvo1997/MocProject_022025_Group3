@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router ,Routes ,Route, Navigate } from 'react-router-dom';
+import LoginPage from './pages/LoginPage/LoginPage.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path='/' element = {<App/>}/>
+        <Route path='/login' element={<LoginPage />}/>
+        <Route path='*' element = {<Navigate to = "/"/>}/>
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
